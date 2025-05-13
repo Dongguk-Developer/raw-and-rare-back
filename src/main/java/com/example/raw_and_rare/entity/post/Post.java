@@ -1,6 +1,6 @@
 package com.example.raw_and_rare.entity.post;
 
-import com.example.raw_and_rare.entity.auth.user.Users;
+import com.example.raw_and_rare.entity.auth.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +23,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users owner;
+    private User owner;
 
     @Column(nullable = false)
     private String title;

@@ -20,11 +20,11 @@ public class Block {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "blocked_id")
-    private Users targetUser;
+    private User targetUser;
 
     @Column(nullable = false)
     private Instant expiration;

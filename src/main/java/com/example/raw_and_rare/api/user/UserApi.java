@@ -19,4 +19,8 @@ public class UserApi {
     public ResponseEntity<UserUpdateResponse> userUpdate(@PathVariable Long userId, @RequestBody UserUpdateRequest request){
         return ResponseEntity.ok(userService.updateUser(userId, request));
     }
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<UserUpdateResponse> userQuit(@PathVariable Long userId){
+        return ResponseEntity.ok(userService.quitUser(userId));
+    }
 }

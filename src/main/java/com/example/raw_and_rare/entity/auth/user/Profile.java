@@ -20,7 +20,7 @@ public class Profile {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @Column(nullable = false)
     private String image;

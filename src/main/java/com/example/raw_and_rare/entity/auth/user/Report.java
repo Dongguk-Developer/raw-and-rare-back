@@ -25,11 +25,11 @@ public class Report {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "reported_id")
-    private Users reportedUser;
+    private User reportedUser;
 
     @Column(nullable = false)
     private String reason;

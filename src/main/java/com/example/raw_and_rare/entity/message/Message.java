@@ -1,6 +1,6 @@
 package com.example.raw_and_rare.entity.message;
 
-import com.example.raw_and_rare.entity.auth.user.Users;
+import com.example.raw_and_rare.entity.auth.user.User;
 import com.example.raw_and_rare.entity.post.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false)
-    private Users sender;
+    private User sender;
 
     @JoinColumn(name = "user_id",nullable = false)
     private Long provider;

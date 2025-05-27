@@ -21,4 +21,12 @@ public class UserService {
         userCommandRepository.save(user);
         return UserUpdateResponse.builder().message("업데이트 성공").build();
     }
+
+    @Transactional
+    public UserUpdateResponse quitUser(Long userId) {
+        User user = userQueryRepository.findById(userId).orElseThrow(()->new RuntimeException("해당 유저가 존재하지 않습니다."));
+        user.updateStatus(UserStatus.QUIT);
+        userCommandRepository.save(user);
+        return UserUpdateResponse.builder().message("탈퇴 성공").build();
+    }
 }

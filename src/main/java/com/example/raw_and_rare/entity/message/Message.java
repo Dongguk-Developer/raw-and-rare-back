@@ -42,4 +42,12 @@ public class Message {
     @Column(nullable = false)
     @ColumnDefault("false")
     private Boolean isFiltered;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private MessageType messageType;
+
+    @Column(nullable = false)
+    @ColumnDefault("0")
+    private Long filesize;
 }

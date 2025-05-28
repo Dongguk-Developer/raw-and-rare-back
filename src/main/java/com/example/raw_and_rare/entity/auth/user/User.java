@@ -1,5 +1,6 @@
 package com.example.raw_and_rare.entity.auth.user;
-import com.example.raw_and_rare.dto.user.UserDto.*;
+
+import com.example.raw_and_rare.dto.user.UserDto.UserUpdateRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +18,11 @@ import java.time.Instant;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id",unique = true)
+    @Column(name = "user_id", unique = true)
     private Long id;
 
-    @Column(nullable = false)
-    private String username;
+    @Column(name = "profile_id", nullable = false, unique = true)
+    private Long profileId;
 
     @Column(nullable = false)
     private String nickname;
@@ -37,11 +38,11 @@ public class User {
     private UserStatus status;
 
     public void updateUser(UserUpdateRequest updateRequestDto) {
-        this.username = updateRequestDto.username();
         this.nickname = updateRequestDto.nickname();
         this.status = updateRequestDto.status();
         this.updated_at = Instant.now();
     }
+
     public void updateStatus(UserStatus status) {
         this.status = status;
     }

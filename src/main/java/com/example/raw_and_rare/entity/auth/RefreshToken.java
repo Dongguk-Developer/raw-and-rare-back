@@ -1,4 +1,5 @@
 package com.example.raw_and_rare.entity.auth;
+
 import com.example.raw_and_rare.entity.auth.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,5 +23,5 @@ public class RefreshToken {
     private User user;
 
     @Column(nullable = false)
-    private String refreshToken;//리프레시 토큰
+    private String refreshToken; //리프레시 토큰
 }

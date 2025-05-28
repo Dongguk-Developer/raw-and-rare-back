@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface UserQueryRepository extends JpaRepository<User, Long> {
     Optional<User> findUserById(Long id);
+
+    Optional<User> findUserByProfileId(Long profile_id);
 }

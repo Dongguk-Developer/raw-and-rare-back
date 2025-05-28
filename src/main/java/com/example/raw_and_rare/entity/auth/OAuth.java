@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import java.time.Instant;
 
 @Getter
@@ -16,23 +17,22 @@ import java.time.Instant;
 public class OAuth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "oauth_id",unique = true)
+    @Column(name = "oauth_id", unique = true)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(nullable = false)
-    private String token;//액세스 토큰
+    @Column(name = "access_token", nullable = false)
+    private String token; // 카카오 데이터 액세스 토큰
 
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
-    @Column(nullable = false)
+    @Column(name = "kakao_id", nullable = false)
     private Long kakaoId;
-
 }
